@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Stream</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="/js/channelList.js"></script>
+</head>
+
+<body>
+    <nav class="flex flex-row justify-between items-center border-b border-[#334155] bg-[#0F172A] px-6 py-4 shadow">
+        <a href="index.html">
+            <img src="img/Smart Stream logo-selection.png" alt="logo" class="h-[32px]">
+        </a>
+        <div class="flex flex-row gap-2 justify-between items-center px-2 py-1 rounded-xl bg-[#1E293B]">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="4" cy="4" r="4" fill="#EF4444" />
+            </svg>
+            <small class="font-sans font-semibold text-white">Live</small>
+        </div>
+    </nav>
+    <div class="flex-col flex md:flex-row ">
+        <aside class="w-full flex flex-col gap-2 md:flex-row border-r border-[#334155] bg-[#0F172A]">
+            <div class="flex flex-col w-full border-r p-2 md:p-4 gap-4 border-[#334155]">
+                <div class="flex flex-col gap-3">
+                    <strong class="font-sans font-bold text-white">Live TV</strong>
+                    <input type="search" placeholder="Search by contrie name ..."
+                        class="bg-[#1E293B] border text-[#94A3B8] border-[#334155] w-full h-[44px] rounded-lg p-3">
+                </div>
+                <div class="flex flex-col gap-2" id="contrieHolder">
+                    <!-- contrieHolder -->
+                </div>
+            </div>
+            <div class="w-full flex flex-col p-2 md:p-4 gap-4">
+                <div class="flex flex-col gap-3">
+                    <strong class="font-sans font-bold text-white">Live TV</strong>
+                    <input type="search" placeholder="Search by channel name or number..."
+                        class="bg-[#1E293B] border text-[#94A3B8] border-[#334155] w-full h-[44px] rounded-lg p-3">
+                    <small class="font-sans text-[#94A3B8]">12 channels</small>
+                    <ul class="flex flex-row gap-2 overflow-x-auto">
+                        <li class="text-white bg-[#1E293B] px-2 py-1 rounded-lg cursor-pointer">All</li>
+                        <li class="text-white bg-[#1E293B] px-2 py-1 rounded-lg cursor-pointer">Documentary</li>
+                        <li class="text-white bg-[#1E293B] px-2 py-1 rounded-lg cursor-pointer">News</li>
+                        <li class="text-white bg-[#1E293B] px-2 py-1 rounded-lg cursor-pointer">Sports</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col md:flex-col gap-2 max-h-150 overflow-auto" id="channelList">
+                    <!-- <div
+                        class="flex flex-row items-center h-[64px] bg-[#0F172A] p-3 gap-3 border border-[#1E293B] hover:border-[#818CF8] cursor-pointer rounded-lg w-full">
+                        <span class="text-[#94A3B8]">1058</span>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="12" fill="#334155" />
+                            <path
+                                d="M15.4972 21.093V19.3182H23.8594V21.093H20.7422V29.5H18.6143V21.093H15.4972ZM25.2365 29.5V19.3182H27.3892V27.7251H31.7543V29.5H25.2365Z"
+                                fill="#F8FAFC" />
+                        </svg>
+                        <strong class="text-[#F8FAFC]">FR - TLC FHD</strong>
+                    </div> -->     
+                </div>
+            </div>
+        </aside>
+        <main class="bg-[#05070B] w-full p-2 md:p-8 flex flex-col gap-3">
+            <div class="flex flex-col gap-6">
+                <div class="flex flex-row gap-4 items-center">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="48" height="48" rx="12" fill="#334155" />
+                        <path
+                            d="M15.4972 21.093V19.3182H23.8594V21.093H20.7422V29.5H18.6143V21.093H15.4972ZM25.2365 29.5V19.3182H27.3892V27.7251H31.7543V29.5H25.2365Z"
+                            fill="#F8FAFC" />
+                    </svg>
+                    <div class="flex flex-col">
+                        <strong class="font-bold font-sans text-md text-white">Chanel Name</strong>
+                        <small class="font-sans text-[#94A3B8]">Channel 003 · Nature & documentary</small>
+                    </div>
+                </div>
+                <img src="img/Cinematic player.png" alt="">
+            </div>
+            <div class="flex flex-col md:grid md:grid-cols-[2fr_1fr] gap-4">
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-2">
+                        <span class="text-[#6366F1] font-semibold font-sans ">NOW PLAYING</span>
+                        <h2 class="font-bold font-sans text-white text-2xl">Iceland: Land of Fire & Ice</h2>
+                        <small class="text-[#94A3B8] font-sans">Documentary</small>
+                    </div>
+                    <p class="font-sans text-[#94A3B8]">Journey across volcanic peaks, ancient glaciers and wild
+                        coastlines to discover the extraordinary
+                        forces shaping Iceland’s breathtaking landscape.</p>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row justify-between items-center">
+                            <small class="font-semibold text-white">20:00-21:00</small>
+                            <small class="font-sans text-[#94A3B8]">36 min remaining</small>
+                        </div>
+                        <div class="h-2 w-full rounded-lg bg-[#1E293B]">
+                            <div class="h-2 w-[50%] rounded-lg bg-[#6366F1]">
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between items-center">
+                            <small class="font-semibold text-white">20:24 · Local time</small>
+                            <small class="font-sans text-[#94A3B8]">4K UHD · Stereo</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col w-full rounded-lg h-full bg-[#0F172A] border border-[#1E293B] p-5 gap-4">
+                    <div class="flex flex-row justify-between items-center">
+                        <strong class="text-white font-sans">Up next on Wild Earth</strong>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.16602 10H15.834M10 15.834L15.834 10L10 4.166" stroke-width="1.75"
+                                stroke-linecap="round" stroke="#94A3B8" />
+                        </svg>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row justify-between items-center">
+                            <small class="font-sans text-[#6366F1]">21:00 – 22:00</small>
+                            <small class="font-sans text-[#94A3B8]">60 min</small>
+                        </div>
+                        <strong class="text-white font-sans">The Secret Life of Forests</strong>
+                        <small class="font-sans text-[#94A3B8]">The hidden connections beneath the canopy.</small>
+                    </div>
+                    <hr class="border-[#1E293B]">
+                    <div class="flex flex-row gap-4 items-center">
+                        <small class="font-sans text-[#6366F1]">22:00</small>
+                        <strong class="text-white font-sans">Ocean After Dark</strong>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
