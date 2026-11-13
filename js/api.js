@@ -14,10 +14,9 @@ export async function getCountriesApi() {
 
 }
 
-export async function logoApi() {
-
+export async function getStreamUrl() {
     try {
-        const res = await fetch("https://iptv-org.github.io/api/logos.json");
+        const res = await fetch("https://iptv-org.github.io/api/streams.json")
         if (!res.ok) {
             throw new Error(`HTTP Error! ${res.status}`)
         }
