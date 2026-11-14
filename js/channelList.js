@@ -55,7 +55,8 @@ function displayConteries() {
     container.addEventListener('click', (e) => {
         const btn = e.target.closest('button[data-code]')
         if (!btn) return
-        displaychannels(btn.dataset.code)
+        currentCountry = btn.dataset.code
+        displaychannels()
     })
 }
 
@@ -66,7 +67,7 @@ document.getElementById('channelList').addEventListener('click', (e) => {
     const channel = selectedChannels.find(channel => channel.id === btn.dataset.id)
     if (!channel) return
 
-    const countryName = selectedCountries.find(channel => channel.code === channel.country)?.name ?? channel.country
+    const countryName = selectedCountries.find(c => c.code === channel.country)?.name ?? channel.country
     const categories = channel.categories
     const streamUrl = streamByChannel[channel.id]
     const list = document.getElementById('main')
@@ -145,18 +146,29 @@ document.getElementById('channelList').addEventListener('click', (e) => {
     list.innerHTML = html
 })
 
-let currentCountry = "";
-function displaychannels(code) {
-    currentCountry = code
+let currentCountry = ''
+let currentCategory = 'all'
+const section = document.getElementById('btnscontainer')
+
+function displaychannels() {
     const text = document.getElementById('input').value.toLowerCase().trim()
     const list = selectedChannels.filter(channel =>
-        (!code || channel.country === code) &&
+        (!currentCountry || channel.country === currentCountry) &&
+        (currentCategory === 'all' || channel.categories.includes(currentCategory)) &&
         channel.name.toLowerCase().includes(text)
     )
     document.getElementById('channelList').innerHTML = list.map(channel => `
         <button class="flex flex-row items-center h-[64px] bg-[#0F172A] p-3 gap-3 border border-[#1E293B] hover:border-[#818CF8] cursor-pointer rounded-lg w-full text-[#F8FAFC]" data-id="${channel.id}">${channel.name}</button>
     `).join('')
 }
+
+section.addEventListener('click', (e) => {
+    const btn = e.target.closest('button')
+    if (!btn) return
+    currentCategory = btn.id.toLowerCase()
+    displaychannels()
+})
+
 document.getElementById('input').addEventListener('input', () => {
     displaychannels(currentCountry)
 })
